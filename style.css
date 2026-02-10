@@ -1,0 +1,41 @@
+/* Ocean Theme CSS Styles */
+body {
+    background-color: #d4ebf2; /* Light blue background */
+    color: #003b2f; /* Dark green text */
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    background-color: #0096d6; /* Ocean blue header */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar {
+    background-color: #0077a1; /* Darker ocean blue */
+    overflow: hidden;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #005f7f; /* Hover effect */
+}
+
+.footer {
+    background-color: #0096d6;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

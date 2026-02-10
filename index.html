@@ -3,181 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Nischay | Our Galaxy</title>
-    <style>
-        /* The Space Background */
-        body {
-            margin: 0;
-            padding: 0;
-            background: #020205;
-            color: white;
-            font-family: 'Arial', sans-serif;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            /* Animated Nebula Glow */
-            background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
-        }
-
-        /* Twinkling Stars Animation */
-        .stars-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
-            animation: twinkle 5s infinite linear;
-        }
-
-        @keyframes twinkle {
-            0% { opacity: 0.5; }
-            50% { opacity: 1; }
-            100% { opacity: 0.5; }
-        }
-
-        h1 {
-            font-family: 'Georgia', serif;
-            letter-spacing: 4px;
-            text-shadow: 0 0 20px #fff, 0 0 30px #ff00ff;
-            margin-bottom: 80px;
-            z-index: 2;
-        }
-
-        /* Floating Planets Container */
-        .galaxy-container {
-            position: relative;
-            width: 400px;
-            height: 400px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .planet {
-            position: absolute;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            font-weight: bold;
-            font-size: 0.8rem;
-            padding: 15px;
-            box-shadow: inset -10px -10px 20px rgba(0,0,0,0.5);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        /* Planet Variations */
-        .teddy-day { 
-            width: 110px; height: 110px;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); 
-            top: 0; left: 50px;
-            box-shadow: 0 0 25px rgba(255, 154, 158, 0.6);
-            animation-delay: 0s;
-        }
-
-        .our-story { 
-            width: 130px; height: 130px;
-            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%); 
-            bottom: 20px; right: 30px;
-            box-shadow: 0 0 30px rgba(161, 140, 209, 0.6);
-            animation-delay: 1s;
-        }
-
-        .message-planet { 
-            width: 90px; height: 90px;
-            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); 
-            top: 150px; left: -20px;
-            box-shadow: 0 0 20px rgba(132, 250, 176, 0.6);
-            animation-delay: 2s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-        }
-
-        .planet:hover {
-            transform: scale(1.2) !important;
-            filter: brightness(1.2);
-            z-index: 5;
-        }
-
-        /* Pop-up Overlay */
-        #popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.85);
-            padding: 40px;
-            border: 2px solid #fff;
-            border-radius: 30px;
-            text-align: center;
-            z-index: 100;
-            box-shadow: 0 0 50px rgba(255,255,255,0.2);
-            width: 280px;
-        }
-
-        #popup p {
-            line-height: 1.6;
-            font-size: 1.1rem;
-        }
-
-        .close-btn {
-            margin-top: 15px;
-            background: #fff;
-            color: #000;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-    </style>
+    <title>Romantic Interactive Website for Khushi and Nischay</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <h1>Welcome to Our Love</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#love-letters">Love Letters</a></li>
+                <li><a href="#memories">Memories</a></li>
+                <li><a href="#countdown">Countdown Timer</a></li>
+                <li><a href="#interactive-game">Interactive Game</a></li>
+                <li><a href="#journal">Journal</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="stars-container"></div>
+    <section id="home">
+        <h2>Home</h2>
+        <p>Welcome to our special website, dedicated to our love story!</p>
+    </section>
 
-    <h1>OUR LITTLE GALAXY</h1>
+    <section id="love-letters">
+        <h2>Love Letters</h2>
+        <textarea placeholder="Write a love letter..."></textarea>
+        <button type="submit">Send</button>
+    </section>
 
-    <div class="galaxy-container">
-        <div class="planet teddy-day" onclick="showMessage('Happy Teddy Day, Nischay! 🧸 Since I can\'t be there to hug you, this little planet is holding all my warmth for you.')">
-            Happy Teddy Day
-        </div>
+    <section id="memories">
+        <h2>Memories</h2>
+        <ul>
+            <li>Memory 1: Our first date</li>
+            <li>Memory 2: The proposal</li>
+        </ul>
+    </section>
 
-        <div class="planet our-story" onclick="showMessage('Our story is my favorite adventure. No matter the distance, you are my home. 🏠❤️')">
-            Our Story
-        </div>
+    <section id="countdown">
+        <h2>Countdown Timer</h2>
+        <div id="timer">Countdown to our next meeting!</div>
+    </section>
 
-        <div class="planet message-planet" onclick="showMessage('I love you more than all the stars in the sky. Can\'t wait to see you soon! ✨')">
-            For Nischay
-        </div>
-    </div>
+    <section id="interactive-game">
+        <h2>Interactive Game</h2>
+        <p>Play a game together!</p>
+    </section>
 
-    <div id="popup">
-        <p id="popup-text"></p>
-        <button class="close-btn" onclick="closeMessage()">Close</button>
-    </div>
+    <section id="journal">
+        <h2>Journal</h2>
+        <textarea placeholder="Write your thoughts..."></textarea>
+        <button type="submit">Save Entry</button>
+    </section>
 
-    <script>
-        function showMessage(text) {
-            document.getElementById('popup-text').innerText = text;
-            document.getElementById('popup').style.display = 'block';
-        }
+    <footer>
+        <p>Background Music</p>
+        <audio controls>
+            <source src="bg-music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <p>&copy; 2026 Khushi and Nischay</p>
+    </footer>
 
-        function closeMessage() {
-            document.getElementById('popup').style.display = 'none';
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

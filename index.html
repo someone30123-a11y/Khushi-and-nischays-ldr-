@@ -3,68 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Romantic Interactive Website for Khushi and Nischay</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>For Nischay | Our Little Galaxy</title>
+    <style>
+        :root {
+            --glass: rgba(255, 255, 255, 0.1);
+            --border: rgba(255, 255, 255, 0.2);
+            --text: #ffffff;
+            --accent: #ff9a9e;
+        }
+
+        body {
+            margin: 0;
+            background: #0f0c29; /* Dark space background */
+            background: linear-gradient(to bottom, #000000, #434343, #000000);
+            color: var(--text);
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Sidebar Menu like the example */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.9);
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            backdrop-filter: blur(10px);
+        }
+
+        .sidebar a {
+            padding: 8px 32px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover { color: var(--accent); }
+
+        .openbtn {
+            font-size: 30px;
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 101;
+            background: none;
+            border: none;
+            color: white;
+        }
+
+        /* Main Content Wrapper */
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        h1 { font-size: 3rem; margin-bottom: 10px; text-shadow: 0 0 10px var(--accent); }
+        .subtitle { font-style: italic; opacity: 0.8; margin-bottom: 50px; }
+
+        /* The Galaxy Cards */
+        .galaxy-section {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 20px;
+            width: 250px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+
+        .card h3 { margin-top: 0; color: var(--accent); }
+
+        /* Personal Letter Section */
+        .letter {
+            background: var(--glass);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: left;
+            border-left: 5px solid var(--accent);
+            margin-top: 50px;
+        }
+
+        /* Music Section */
+        .music-list {
+            margin-top: 50px;
+            text-align: left;
+        }
+
+        .song {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        /* Surprise Button */
+        .surprise-btn {
+            background: white;
+            color: black;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 40px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255,255,255,0); }
+            100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+        }
+
+        /* Hidden Message Reveal */
+        .hidden-content {
+            display: none;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Our Love</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#love-letters">Love Letters</a></li>
-                <li><a href="#memories">Memories</a></li>
-                <li><a href="#countdown">Countdown Timer</a></li>
-                <li><a href="#interactive-game">Interactive Game</a></li>
-                <li><a href="#journal">Journal</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="home">
-        <h2>Home</h2>
-        <p>Welcome to our special website, dedicated to our love story!</p>
-    </section>
+    <button class="openbtn" onclick="toggleNav()">☰</button>
 
-    <section id="love-letters">
-        <h2>Love Letters</h2>
-        <textarea placeholder="Write a love letter..."></textarea>
-        <button type="submit">Send</button>
-    </section>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" onclick="toggleNav()">× Close</a>
+        <a href="#">🏠 Home</a>
+        <a href="#">🎵 Our Songs</a>
+        <a href="#">🧸 Teddy Day</a>
+        <a href="#">🦋 Memories</a>
+    </div>
 
-    <section id="memories">
-        <h2>Memories</h2>
-        <ul>
-            <li>Memory 1: Our first date</li>
-            <li>Memory 2: The proposal</li>
-        </ul>
-    </section>
+    <div class="container">
+        <a href="#" class="surprise-btn" onclick="alert('Surprise! I love you Nischay! ❤️')">✨ Click here for a surprise</a>
+        
+        <h1>Heyyy Nischay!</h1>
+        <p class="subtitle">Welcome to our little corner of the internet...</p>
 
-    <section id="countdown">
-        <h2>Countdown Timer</h2>
-        <div id="timer">Countdown to our next meeting!</div>
-    </section>
+        <div class="galaxy-section">
+            <div class="card" onclick="toggleText('msg1')">
+                <h3>Our Little Galaxy</h3>
+                <p>Click to see what's inside...</p>
+                <div id="msg1" class="hidden-content">
+                    Even though we are miles apart, we are under the same stars. You are my moon, Nischay! 🌙
+                </div>
+            </div>
 
-    <section id="interactive-game">
-        <h2>Interactive Game</h2>
-        <p>Play a game together!</p>
-    </section>
+            <div class="card" onclick="toggleText('msg2')">
+                <h3>Happy Teddy Day 🧸</h3>
+                <p>A virtual hug for you...</p>
+                <div id="msg2" class="hidden-content">
+                    I wish I could give you a real teddy hug today. But for now, let this website hold you tight! ❤️
+                </div>
+            </div>
+        </div>
 
-    <section id="journal">
-        <h2>Journal</h2>
-        <textarea placeholder="Write your thoughts..."></textarea>
-        <button type="submit">Save Entry</button>
-    </section>
+        <div class="letter">
+            <h2>To my favorite person,</h2>
+            <p>I just want to remind you how amazing and comforting you are. Your voice is my favorite sound, and talking to you feels like home. I'm so proud of everything you do.</p>
+            <p><strong>All The Best, Nischay!</strong> You're going to achieve great things, and I'll be here cheering for you every step of the way.</p>
+        </div>
 
-    <footer>
-        <p>Background Music</p>
-        <audio controls>
-            <source src="bg-music.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-        <p>&copy; 2026 Khushi and Nischay</p>
-    </footer>
+        <div class="music-list">
+            <h2>Our Songs 🎵</h2>
+            <div class="song">
+                <span>Yellow - Coldplay</span>
+                <span>▶</span>
+            </div>
+            <div class="song">
+                <span>Home - Edith Whiskers</span>
+                <span>▶</span>
+            </div>
+        </div>
+    </div>
 
-    <script src="script.js"></script>
+    <script>
+        let sidebarOpen = false;
+        function toggleNav() {
+            const sidebar = document.getElementById("mySidebar");
+            if (!sidebarOpen) {
+                sidebar.style.width = "250px";
+                sidebarOpen = true;
+            } else {
+                sidebar.style.width = "0";
+                sidebarOpen = false;
+            }
+        }
+
+        function toggleText(id) {
+            const content = document.getElementById(id);
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+    </script>
 </body>
 </html>

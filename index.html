@@ -3,139 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khushi & Nischay - Our Ocean Love Story</title>
-    <link rel="stylesheet" href="style.css">
+    <title>For Nischay | Our Galaxy</title>
+    <style>
+        /* The Space Background */
+        body {
+            margin: 0;
+            padding: 0;
+            background: #020205;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            /* Animated Nebula Glow */
+            background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
+        }
+
+        /* Twinkling Stars Animation */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+            animation: twinkle 5s infinite linear;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        h1 {
+            font-family: 'Georgia', serif;
+            letter-spacing: 4px;
+            text-shadow: 0 0 20px #fff, 0 0 30px #ff00ff;
+            margin-bottom: 80px;
+            z-index: 2;
+        }
+
+        /* Floating Planets Container */
+        .galaxy-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .planet {
+            position: absolute;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-weight: bold;
+            font-size: 0.8rem;
+            padding: 15px;
+            box-shadow: inset -10px -10px 20px rgba(0,0,0,0.5);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Planet Variations */
+        .teddy-day { 
+            width: 110px; height: 110px;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); 
+            top: 0; left: 50px;
+            box-shadow: 0 0 25px rgba(255, 154, 158, 0.6);
+            animation-delay: 0s;
+        }
+
+        .our-story { 
+            width: 130px; height: 130px;
+            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%); 
+            bottom: 20px; right: 30px;
+            box-shadow: 0 0 30px rgba(161, 140, 209, 0.6);
+            animation-delay: 1s;
+        }
+
+        .message-planet { 
+            width: 90px; height: 90px;
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); 
+            top: 150px; left: -20px;
+            box-shadow: 0 0 20px rgba(132, 250, 176, 0.6);
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .planet:hover {
+            transform: scale(1.2) !important;
+            filter: brightness(1.2);
+            z-index: 5;
+        }
+
+        /* Pop-up Overlay */
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.85);
+            padding: 40px;
+            border: 2px solid #fff;
+            border-radius: 30px;
+            text-align: center;
+            z-index: 100;
+            box-shadow: 0 0 50px rgba(255,255,255,0.2);
+            width: 280px;
+        }
+
+        #popup p {
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .close-btn {
+            margin-top: 15px;
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">🌊 Khushi & Nischay 💙</div>
-            <ul class="nav-menu">
-                <li><a href="#memories">Memories</a></li>
-                <li><a href="#letters">Letters</a></li>
-                <li><a href="#countdown">Countdown</a></li>
-                <li><a href="#journal">Journal</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-content">
-            <h2>💕 Khushi & Nischay 💕</h2>
-            <p>Our Beautiful Long-Distance Love Story</p>
-            <p class="subtitle">Distance doesn't matter when you have love like ours 🌊</p>
-        </div>
-    </section>
+    <div class="stars-container"></div>
 
-    <!-- MEMORIES SECTION -->
-    <section id="memories" class="section">
-        <h2>📸 Our Memories</h2>
-        <div class="gallery-container">
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/300x250/001f3f/00d4ff?text=Memory+1" alt="Our first meeting">
-                <p>Our First Meeting 💫</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/300x250/001f3f/00d4ff?text=Memory+2" alt="Beach day">
-                <p>Beautiful Moments Together 🌅</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/300x250/001f3f/00d4ff?text=Memory+3" alt="Adventure">
-                <p>Adventures with You 🎉</p>
-            </div>
-        </div>
-        <div class="instruction">
-            <strong>📝 How to Add Your Photos:</strong> Replace the placeholder URLs with your real photo URLs. Upload photos to Google Drive, Imgur, or Pinterest and get the direct image link!
-        </div>
-    </section>
+    <h1>OUR LITTLE GALAXY</h1>
 
-    <!-- LOVE LETTERS SECTION -->
-    <section id="letters" class="section">
-        <h2>💌 Our Love Letters</h2>
-        <div class="letters-container">
-            <div class="letter">
-                <h3>💕 Letter from Khushi</h3>
-                <p>My dearest Nischay,</p>
-                <p>Every moment with you feels like a dream come true. Even though distance separates us, my heart is always with you. You make every day special, and I can't wait for the day when we don't have to say goodbye.</p>
-                <p>Forever yours,</p>
-                <p><strong>Khushi 💙</strong></p>
-                <hr style="border: 1px solid #00d4ff; margin: 1rem 0;">
-                <p><em>✨ Edit this letter with your own words! ✨</em></p>
-            </div>
-            <div class="letter">
-                <h3>💙 Letter from Nischay</h3>
-                <p>My Beautiful Khushi,</p>
-                <p>You are my favorite person, my greatest adventure, and my forever. Distance is just a test of how strong our love is, and we're passing with flying colors. I love you more every single day.</p>
-                <p>Always yours,</p>
-                <p><strong>Nischay 💕</strong></p>
-                <hr style="border: 1px solid #00d4ff; margin: 1rem 0;">
-                <p><em>✨ Edit this letter with your own words! ✨</em></p>
-            </div>
+    <div class="galaxy-container">
+        <div class="planet teddy-day" onclick="showMessage('Happy Teddy Day, Nischay! 🧸 Since I can\'t be there to hug you, this little planet is holding all my warmth for you.')">
+            Happy Teddy Day
         </div>
-    </section>
 
-    <!-- COUNTDOWN SECTION -->
-    <section id="countdown" class="section">
-        <h2>⏳ Countdown to Our Next Meeting</h2>
-        <div class="countdown-setup">
-            <label for="countdown-date">When will we meet next?</label>
-            <input type="date" id="countdown-date">
-            <button onclick="setCountdownDate()">Set Date</button>
+        <div class="planet our-story" onclick="showMessage('Our story is my favorite adventure. No matter the distance, you are my home. 🏠❤️')">
+            Our Story
         </div>
-        <div class="countdown" id="countdown">
-            <div class="countdown-item">
-                <span id="days">0</span>
-                <p>Days</p>
-            </div>
-            <div class="countdown-item">
-                <span id="hours">0</span>
-                <p>Hours</p>
-            </div>
-            <div class="countdown-item">
-                <span id="minutes">0</span>
-                <p>Minutes</p>
-            </div>
-            <div class="countdown-item">
-                <span id="seconds">0</span>
-                <p>Seconds</p>
-            </div>
-        </div>
-    </section>
 
-    <!-- JOURNAL SECTION -->
-    <section id="journal" class="section">
-        <h2>📔 Our Love Journal</h2>
-        <div class="journal-container">
-            <div class="journal-entry">
-                <h3>✨ How It All Started</h3>
-                <p class="date">Date: When we met</p>
-                <p>This is where you can share how your beautiful love story began. Write about the day you met, what made you fall in love, or any special moment that changed everything. Edit this and add your own story! 💕</p>
-            </div>
-            <div class="journal-entry">
-                <h3>💫 Why I Love You</h3>
-                <p class="date">Date: Today</p>
-                <p>Write down the reasons you love your partner. Their smile, their laugh, the way they understand you without saying a word... all the little things that make your heart skip a beat. Express your feelings here! 💙</p>
-            </div>
-            <div class="journal-entry">
-                <h3>🌟 Our Dream Future</h3>
-                <p class="date">Date: Someday</p>
-                <p>Write about your dreams together. Where do you see yourselves? What adventures will you have? What does forever look like to you? Share your vision of your beautiful future together! 💕</p>
-            </div>
+        <div class="planet message-planet" onclick="showMessage('I love you more than all the stars in the sky. Can\'t wait to see you soon! ✨')">
+            For Nischay
         </div>
-        <div class="instruction">
-            <strong>✍️ How to Add Journal Entries:</strong> Open index.html, find the journal section, and add new entries by copying and pasting the format. You can add as many as you want!
-        </div>
-    </section>
+    </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>💙 Made with Love for Khushi & Nischay 💙</p>
-        <p>Distance is temporary, but our love is forever 🌊</p>
-        <p>© 2026 Our Ocean Love Story</p>
-    </footer>
+    <div id="popup">
+        <p id="popup-text"></p>
+        <button class="close-btn" onclick="closeMessage()">Close</button>
+    </div>
 
-    <script src="script.js"></script>
+    <script>
+        function showMessage(text) {
+            document.getElementById('popup-text').innerText = text;
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closeMessage() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
 </body>
 </html>

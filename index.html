@@ -3,228 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Nischay | Our Little Galaxy</title>
+    <title>For Nischay | My Favorite Person</title>
     <style>
         :root {
-            --glass: rgba(255, 255, 255, 0.1);
+            --ocean-deep: #001a2d;
+            --ocean-light: #0077be;
+            --glass: rgba(255, 255, 255, 0.12);
             --border: rgba(255, 255, 255, 0.2);
-            --text: #ffffff;
-            --accent: #ff9a9e;
+            --accent: #89cff0; /* Baby Blue */
         }
 
         body {
             margin: 0;
-            background: #0f0c29; /* Dark space background */
-            background: linear-gradient(to bottom, #000000, #434343, #000000);
-            color: var(--text);
-            font-family: 'Segoe UI', sans-serif;
-            line-height: 1.6;
+            padding: 0;
+            /* Ocean Gradient Theme */
+            background: linear-gradient(180deg, #001219 0%, #003049 50%, #005f73 100%);
+            background-attachment: fixed;
+            color: white;
+            font-family: 'Palatino', serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
         }
 
-        /* Sidebar Menu like the example */
-        .sidebar {
-            height: 100%;
-            width: 0;
+        /* Animated Water Ripples in Background */
+        .ocean-bg {
             position: fixed;
-            z-index: 100;
             top: 0;
             left: 0;
-            background-color: rgba(0,0,0,0.9);
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-            backdrop-filter: blur(10px);
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.4;
+            background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
         }
 
-        .sidebar a {
-            padding: 8px 32px;
-            text-decoration: none;
-            font-size: 18px;
-            color: #818181;
-            display: block;
-            transition: 0.3s;
-        }
-
-        .sidebar a:hover { color: var(--accent); }
-
-        .openbtn {
-            font-size: 30px;
-            cursor: pointer;
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 101;
-            background: none;
-            border: none;
-            color: white;
-        }
-
-        /* Main Content Wrapper */
         .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 100px 20px;
+            max-width: 700px;
+            padding: 80px 20px;
             text-align: center;
         }
 
-        h1 { font-size: 3rem; margin-bottom: 10px; text-shadow: 0 0 10px var(--accent); }
-        .subtitle { font-style: italic; opacity: 0.8; margin-bottom: 50px; }
+        /* Surprise Button with Music Trigger */
+        .surprise-btn {
+            background: rgba(255, 255, 255, 0.9);
+            color: #003049;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 0 20px rgba(137, 207, 240, 0.5);
+            transition: 0.3s;
+            margin-bottom: 40px;
+        }
 
-        /* The Galaxy Cards */
-        .galaxy-section {
-            display: flex;
+        .surprise-btn:hover {
+            transform: scale(1.05);
+            background: #89cff0;
+        }
+
+        h1 { font-size: 3.5rem; margin-bottom: 10px; letter-spacing: 2px; }
+
+        /* Long Paragraph Section */
+        .long-letter {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 30px;
+            border: 1px solid var(--border);
+            text-align: left;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .galaxy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 50px;
+            margin-top: 30px;
         }
 
         .card {
             background: var(--glass);
+            padding: 25px;
+            border-radius: 20px;
             border: 1px solid var(--border);
-            backdrop-filter: blur(15px);
-            padding: 30px;
-            border-radius: 20px;
-            width: 250px;
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: 0.3s;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent);
-        }
+        .card:hover { border-color: var(--accent); background: rgba(255,255,255,0.2); }
 
-        .card h3 { margin-top: 0; color: var(--accent); }
-
-        /* Personal Letter Section */
-        .letter {
-            background: var(--glass);
-            padding: 40px;
-            border-radius: 20px;
-            text-align: left;
-            border-left: 5px solid var(--accent);
-            margin-top: 50px;
-        }
-
-        /* Music Section */
-        .music-list {
-            margin-top: 50px;
-            text-align: left;
-        }
-
-        .song {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(255,255,255,0.05);
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 10px;
-        }
-
-        /* Surprise Button */
-        .surprise-btn {
-            background: white;
-            color: black;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 40px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(255,255,255,0); }
-            100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
-        }
-
-        /* Hidden Message Reveal */
-        .hidden-content {
+        .hidden-msg {
             display: none;
-            margin-top: 20px;
+            margin-top: 15px;
             font-size: 0.9rem;
-            color: #ddd;
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        /* Music Player UI */
+        .music-player {
+            margin-top: 20px;
+            display: none; /* Starts hidden until surprise clicked */
+            background: rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
 
-    <button class="openbtn" onclick="toggleNav()">☰</button>
-
-    <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" onclick="toggleNav()">× Close</a>
-        <a href="#">🏠 Home</a>
-        <a href="#">🎵 Our Songs</a>
-        <a href="#">🧸 Teddy Day</a>
-        <a href="#">🦋 Memories</a>
-    </div>
+    <div class="ocean-bg"></div>
 
     <div class="container">
-        <a href="#" class="surprise-btn" onclick="alert('Surprise! I love you Nischay! ❤️')">✨ Click here for a surprise</a>
+        <button class="surprise-btn" onclick="playMusic()">✨ Click for a surprise, Nischay!</button>
         
-        <h1>Heyyy Nischay!</h1>
-        <p class="subtitle">Welcome to our little corner of the internet...</p>
+        <audio id="bg-music" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
 
-        <div class="galaxy-section">
-            <div class="card" onclick="toggleText('msg1')">
-                <h3>Our Little Galaxy</h3>
-                <p>Click to see what's inside...</p>
-                <div id="msg1" class="hidden-content">
-                    Even though we are miles apart, we are under the same stars. You are my moon, Nischay! 🌙
-                </div>
+        <div id="music-status" class="music-player">🎵 Now playing our song...</div>
+
+        <h1>Hi Nischay.</h1>
+        
+        <div class="long-letter">
+            <p>To my dearest Nischay, I wanted to create this little ocean for us. Just like the sea, my love for you is vast, deep, and never-ending. Even when the waves get rough and the distance feels like a giant ocean between us, I want you to know that you are my anchor.</p>
+            
+            <p>I think about you every single day. I think about your smile, the way you talk, and how much better you make my life just by being in it. You are my favorite person to share my thoughts with, and I’m so lucky to have you. This space is just for you—a little galaxy of ours hidden in the blue.</p>
+            
+            <p>Keep going, Nischay. You are doing so well, and I am so incredibly proud of you. No matter where we are, we are looking at the same horizon. Happy Valentine's Week, my love!</p>
+        </div>
+
+        <div class="galaxy-grid">
+            <div class="card" onclick="show('m1')">
+                <h3>Our Galaxy 🌌</h3>
+                <div id="m1" class="hidden-msg">In this big universe, I'm glad I found you.</div>
             </div>
-
-            <div class="card" onclick="toggleText('msg2')">
+            <div class="card" onclick="show('m2')">
                 <h3>Happy Teddy Day 🧸</h3>
-                <p>A virtual hug for you...</p>
-                <div id="msg2" class="hidden-content">
-                    I wish I could give you a real teddy hug today. But for now, let this website hold you tight! ❤️
-                </div>
-            </div>
-        </div>
-
-        <div class="letter">
-            <h2>To my favorite person,</h2>
-            <p>I just want to remind you how amazing and comforting you are. Your voice is my favorite sound, and talking to you feels like home. I'm so proud of everything you do.</p>
-            <p><strong>All The Best, Nischay!</strong> You're going to achieve great things, and I'll be here cheering for you every step of the way.</p>
-        </div>
-
-        <div class="music-list">
-            <h2>Our Songs 🎵</h2>
-            <div class="song">
-                <span>Yellow - Coldplay</span>
-                <span>▶</span>
-            </div>
-            <div class="song">
-                <span>Home - Edith Whiskers</span>
-                <span>▶</span>
+                <div id="m2" class="hidden-msg">A huge virtual hug coming your way right now!</div>
             </div>
         </div>
     </div>
 
     <script>
-        let sidebarOpen = false;
-        function toggleNav() {
-            const sidebar = document.getElementById("mySidebar");
-            if (!sidebarOpen) {
-                sidebar.style.width = "250px";
-                sidebarOpen = true;
-            } else {
-                sidebar.style.width = "0";
-                sidebarOpen = false;
-            }
+        function playMusic() {
+            var audio = document.getElementById("bg-music");
+            var status = document.getElementById("music-status");
+            audio.play();
+            status.style.display = "block";
+            alert("I love you to the ocean floor and back! ❤️ (Music is now playing)");
         }
 
-        function toggleText(id) {
-            const content = document.getElementById(id);
-            if (content.style.display === "block") {
-                content.style.display = "none";
+        function show(id) {
+            var x = document.getElementById(id);
+            if (x.style.display === "block") {
+                x.style.display = "none";
             } else {
-                content.style.display = "block";
+                x.style.display = "block";
             }
         }
     </script>
